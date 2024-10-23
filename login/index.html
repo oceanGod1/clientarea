@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="myChat">
+    <meta name="description" content="Dating website">
+    <meta name="author" content="Kingsley Jack Festus">
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Login</title>
+  </head>
+<body>
+  <section id="login-form-section" class="form-section">
+    <!-- <h1>Login</h1> -->
+    <form action="" id="login-form" class="client-form">
+      <p id="submit-error">fill the required fields correctly</p>
+      <div class="form-item">
+        <label for="enter-username">Username/Email</label>
+        <span class="inputfield-holder">
+          <input type="text" class="input-field" id="enter-username" placeholder="username">
+          <p class="input-directive">invalid entry</p>
+        </span>
+      </div>
+      <div class="form-item">
+        <label for="enter-userpassword">Password</label>
+        <span class="inputfield-holder">
+          <input type="password" class="input-field" id="enter-userpassword" placeholder="password">
+          <img class="password-visibility show-password" src="../images/visibility-on.png">
+          <img class="password-visibility hide-password toggle-visibility-icon" src="../images/visibility-off.png">
+        </span>
+      </div>
+      <span class="inputfield-holder button-holder">
+        <button id="submit-button">Login</button>
+      </span>
+    </form>
+  </section>
+  <script src="scripts/app.js"></script>
+</html>
