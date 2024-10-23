@@ -155,7 +155,6 @@ enterPassword.addEventListener('input', () => {
   passwordStrength.meter(3, 'level-three')
   passwordStrength.meter(4, 'level-four')
   passwordStrength.meter(5, 'level-five')
-  console.log(level)
 })
 
 // SUBMIT FORM
@@ -169,7 +168,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
     userDetails.userEmail = enterEmail.value;
     userDetails.userPassword = enterPassword.value;
     userDetails.agreement = checkBox.value;
-    location.reload();
+    // location.reload();
   } else {
     document.querySelector('#submit-error').classList.add('activate')
     setTimeout(() => {
