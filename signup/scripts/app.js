@@ -21,7 +21,7 @@ const entries = {
 const criteria = {
   name1: /^[A-Za-z]{1,}$/,
   name2: /\W|\d/,
-  email: /^([\w\.-]+)@(\w+)(\.\w+)$/,
+  email: /^([\w\.-]+)@(\w+)(\.\w+)(\.\w+)?$/,
   password: /(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*\W).{10,}$/,
   noSpace: /\s/
 }
