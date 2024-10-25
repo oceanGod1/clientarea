@@ -17,24 +17,36 @@ const entries = {
   checkBox: false,
 }
 
+// INPUT ONFOCUS UI
+const inputOnFocusUI = (inputField) => {
+  inputField.parentElement.classList.add('input-onfocus')
+  inputField.parentElement.classList.remove('invalid-syntax')
+}
+enterFirstname.addEventListener('focus', () => inputOnFocusUI(enterFirstname))
+enterLastname.addEventListener('focus', () => inputOnFocusUI(enterLastname))
+enterEmail.addEventListener('focus', () => inputOnFocusUI(enterEmail))
+enterPassword.addEventListener('focus', () => inputOnFocusUI(enterPassword))
+
 // INPUT VALIDATION
 const criteria = {
-  name1: /^[A-Za-z]{1,}$/,
-  name2: /\W|\d/,
-  email: /^([\w\.-]+)@(\w+)(\.\w+)(\.\w+)?$/,
+  firstName: /./,
+  lastName: /.*/,
+  email: /^\w(([\w\.-]+)\w)?@(\w+)(\.\w+)(\.\w+)?$/,
   password: /(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*\W).{10,}$/,
-  noSpace: /\s/
 }
-const inputValidation = (criteria1, enterValue, criteria2, entry, enterName) => {
-  if (criteria1.test(enterValue) && !criteria2.test(enterValue)) {
+const inputValidation = (criteria1, enterValue, entry, inputField) => {
+  if (criteria1.test(enterValue)) {
     entries[entry] = true
-    enterName.parentElement.classList.add('valid-syntax')
-    enterName.nextElementSibling.classList.remove('input-directive-active')
+    inputField.parentElement.classList.add('valid-syntax')
+    inputField.nextElementSibling.classList.remove('input-directive-active')
   } else {
     entries[entry] = false
-    enterName.parentElement.classList.remove('valid-syntax')
-    enterName.parentElement.classList.add('invalid-syntax')
-    enterName.parentElement.lastElementChild.classList.add('input-directive-active')
+    inputField.parentElement.classList.remove('valid-syntax')
+    inputField.parentElement.classList.add('invalid-syntax')
+    inputField.parentElement.lastElementChild.classList.add('input-directive-active')
+    if (inputField.classList.contains('enter-password')) {
+      document.querySelector('.password-rule').style.color = '#fc4d4d'
+    }
   }
 }
 const validateDOB = (dob) => {
@@ -46,10 +58,34 @@ const validateDOB = (dob) => {
 }
 
 // validate First Name, Last Name, Email, Password
-enterFirstname.addEventListener('input', () => {inputValidation(criteria.name1, enterFirstname.value, criteria.name2, 'firstName', enterFirstname)})
-enterLastname.addEventListener('input', () => inputValidation(criteria.name1, enterLastname.value, criteria.name2, 'lastName', enterLastname))
-enterEmail.addEventListener('input', () => inputValidation(criteria.email, enterEmail.value, criteria.noSpace, 'email', enterEmail))
-enterPassword.addEventListener('input', () => {inputValidation(criteria.password, enterPassword.value, criteria.noSpace, 'password', enterPassword)})
+enterFirstname.addEventListener('blur', () => {inputValidation(criteria.firstName, enterFirstname.value, 'firstName', enterFirstname)})
+
+enterLastname.addEventListener('blur', () => {
+  inputValidation(criteria.lastName, enterLastname.value, 'lastName', enterLastname)
+  if (enterLastname.value === '') {
+    enterLastname.parentElement.classList.remove('valid-syntax');
+    enterLastname.parentElement.classList.remove('input-onfocus');
+  } 
+})
+
+enterEmail.addEventListener('blur', () => {
+  inputValidation(criteria.email, enterEmail.value, 'email', enterEmail)
+  if (enterEmail.value === '') {
+    enterEmail.parentElement.lastElementChild.innerText = 'field cannot be empty'
+  } else {
+    enterEmail.parentElement.lastElementChild.innerText = 'invalid email syntax'
+  }
+})
+
+enterPassword.addEventListener('blur', () => {
+  inputValidation(criteria.password, enterPassword.value, 'password', enterPassword)
+  if (/\s/.test(enterPassword.value)) {
+    entries.password = false
+    document.querySelector('.password-rule').style.color = '#fc4d4d'
+    enterPassword.parentElement.classList.remove('valid-syntax')
+    enterPassword.parentElement.classList.add('invalid-syntax')
+  }
+})
 
 // Validate Checkbox
 checkBox.addEventListener('click', () => {
@@ -142,6 +178,9 @@ passwordStrength.meter = function (num, levelColor) {
   } else (
     enterPassword.parentElement.lastElementChild.children[0].classList.remove(levelColor)
   )
+  if (level === 5) {
+    document.querySelector('.password-rule').style.color = 'unset'
+  }
 }
 enterPassword.addEventListener('input', () => {
   passwordStrength.count(/[A-Z]/, 'caps', 1)

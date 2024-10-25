@@ -21,18 +21,18 @@
         <label for="enter-firstname">First Name</label>
         <span class="inputfield-holder submit-entry">
           <input type="text" class="input-field" id="enter-firstname" placeholder="First Name">
-          <p class="input-directive">invalid name syntax</p>
+          <p class="input-directive">field cannot be empty</p>
         </span>
       </div>
 
       <div class="form-item">
         <label for="enter-lastname">Last Name</label>
         <span class="inputfield-holder submit-entry">
-          <input type="text" class="input-field" id="enter-lastname" placeholder="Last Name">
-          <p class="input-directive">invalid name syntax</p>
+          <input type="text" class="input-field" id="enter-lastname" placeholder="Last Name (optional)">
+          <p class="input-directive"></p>
         </span>
       </div>
-
+      
       <div class="form-item">
         <label for="dob">Date of Birth</label>
         <span class="inputfield-holder select-holder">
@@ -68,7 +68,7 @@
       <div class="form-item">
         <label for="enter-email">Email</label>
         <span class="inputfield-holder submit-entry">
-          <input type="text" class="input-field" id="enter-email" placeholder="abc@yourmail.com">
+          <input type="text" class="input-field" id="enter-email" placeholder="user@domain.host">
           <p class="input-directive">invalid email</p>
         </span>
       </div>
@@ -76,7 +76,7 @@
       <div class="form-item">
         <label for="enter-password">Password</label>
         <span class="inputfield-holder submit-entry">
-          <input type="password" class="input-field" id="enter-password" placeholder="password">
+          <input type="password" class="input-field enter-password" id="enter-password" placeholder="password">
           <img class="password-visibility show-password" src="../images/visibility-on.png">
           <img class="password-visibility hide-password toggle-visibility-icon" src="../images/visibility-off.png">
           <div class="input-directive password-meter">
@@ -95,7 +95,7 @@
       </div>
 
       <span class="inputfield-holder button-holder">
-        <button id="submit-button">Submit</button>
+        <button id="submit-button">Create Account</button>
       </span>
 
     </form>
@@ -104,3 +104,21 @@
 </body>
 
 </html>
+
+
+
+
+      <!-- <div class="form-item">
+        <label for="enter-firstname">Name</label>
+        <div class="enter-name">
+          <span class="inputfield-holder submit-entry">
+            <input type="text" class="input-field" id="enter-firstname" placeholder="First Name">
+            <p class="input-directive">invalid name syntax</p>
+          </span>
+      
+          <span class="inputfield-holder submit-entry">
+            <input type="text" class="input-field" id="enter-lastname" placeholder="Last Name">
+            <p class="input-directive">invalid name syntax</p>
+          </span>
+        </div>
+      </div> -->

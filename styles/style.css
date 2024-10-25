@@ -1,6 +1,8 @@
-body{font-family: Calibri;}
+body {
+  font-family: Calibri;
+}
 
-.form-section{
+.form-section {
   width: 100vw;
   height: 100vh;
   display: grid;
@@ -9,9 +11,12 @@ body{font-family: Calibri;}
   justify-content: center;
 }
 
-h1{text-align: center; margin: 0;}
+h1 {
+  text-align: center;
+  margin: 0;
+}
 
-#submit-error{
+#submit-error {
   margin: 0;
   opacity: 0;
   color: #fff;
@@ -23,19 +28,21 @@ h1{text-align: center; margin: 0;}
   background-color: #fc4d4d;
 }
 
-#submit-error.activate{
+#submit-error.activate {
   opacity: 1
 }
 
-.client-form{
+.client-form {
   width: 20rem;
   display: grid;
   border-radius: 0.25rem;
 }
 
-.form-item{display: grid;}
+.form-item {
+  display: grid;
+}
 
-.t-and-c-item{
+.t-and-c-item {
   padding: 1rem 0;
   margin: 0 0 0.8rem;
   align-items: center;
@@ -43,7 +50,7 @@ h1{text-align: center; margin: 0;}
   grid-template-columns: 3rem 1fr;
 }
 
-.inputfield-holder{
+.inputfield-holder {
   height: 2rem;
   display: flex;
   position: relative;
@@ -53,23 +60,36 @@ h1{text-align: center; margin: 0;}
   border: 2px solid #999;
 }
 
-.select-holder{
+.inputfield-holder:first-of-type {
+  margin-right: 0.25rem;
+}
+
+.input-onfocus {
+  border-color: #1800f3;
+}
+
+.select-holder {
   border: none;
   justify-content: start;
 }
 
-.checkbox-holder{
+.checkbox-holder {
   height: 1rem;
   border-width: 1px;
   border-style: solid;
   border-color: white;
   border-radius: 0.25rem;
 }
-.button-holder{border: none;}
 
-label{font-weight: 700;}
+.button-holder {
+  border: none;
+}
 
-.input-field{
+label {
+  font-weight: 700;
+}
+
+.input-field {
   width: 97%;
   border: none;
   outline: none;
@@ -77,7 +97,7 @@ label{font-weight: 700;}
   background-color: inherit;
 }
 
-.enter-dob{
+.enter-dob {
   width: 6rem;
   margin: 0 4px;
   color: #777;
@@ -88,29 +108,46 @@ label{font-weight: 700;}
   border: 2px solid #999;
 }
 
-.dob-select{width: 4.5rem; margin: 0;}
-option{color: black}
-option:first-of-type{color: #999}
+.dob-select {
+  width: 4.5rem;
+  margin: 0;
+}
 
-.input-directive{
+option {
+  color: black
+}
+
+option:first-of-type {
+  color: #999
+}
+
+.input-directive {
   margin: 0;
   opacity: 0;
   color: #fc4d4d;
   font-size: small;
-  position: absolute; bottom: -1.2rem; right: 0.1rem;
+  position: absolute;
+  bottom: -1.2rem;
+  right: 0.1rem;
 }
 
-.input-directive-active{opacity: 1;}
+.input-directive-active {
+  opacity: 1;
+}
 
-.password-visibility{
+.password-visibility {
   width: 1rem;
   cursor: pointer;
-  position: absolute; right: 0.5rem; top: 0.55rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.55rem;
 }
 
-.toggle-visibility-icon{display: none;}
+.toggle-visibility-icon {
+  display: none;
+}
 
-.password-meter{
+.password-meter {
   opacity: 0;
   width: 5rem;
   bottom: -0.8rem;
@@ -119,36 +156,62 @@ option:first-of-type{color: #999}
   background-color: #e0e0e0;
 }
 
-.meter-gauge{opacity: 1;}
+.meter-gauge {
+  opacity: 1;
+}
 
-.strength-level{
+.strength-level {
   height: 100%;
   width: 0%;
   transition: 0.9s;
 }
 
-.level-one{width: 20%; background-color:#ff3a3a;}
-.level-two{width: 40%; background-color:#f3ae2d;}
-.level-three{width: 60%; background-color:#d4df00;}
-.level-four{width: 80%; background-color:#86f32d;}
-.level-five{width: 100%; background-color:#0cb70c;}
+.level-one {
+  width: 20%;
+  background-color: #ff3a3a;
+}
 
-.password-rule{
+.level-two {
+  width: 40%;
+  background-color: #f3ae2d;
+}
+
+.level-three {
+  width: 60%;
+  background-color: #d4df00;
+}
+
+.level-four {
+  width: 80%;
+  background-color: #86f32d;
+}
+
+.level-five {
+  width: 100%;
+  background-color: #0cb70c;
+}
+
+.password-rule {
   margin: 0;
   font-size: small;
   text-align: justify;
 }
 
-#t-and-c{
-padding: 0;
-margin: 0.05rem;
-accent-color: #07a407;
+#t-and-c {
+  padding: 0;
+  margin: 0.05rem;
+  accent-color: #07a407;
 }
 
-.invalid-syntax{border-color: #fc4d4d;}
-.valid-syntax{border-color: #0cb70c;}
+.invalid-syntax {
+  border-color: #fc4d4d;
+}
 
-#submit-button{
+.valid-syntax {
+  border-color: #0cb70c;
+}
+
+#submit-button {
   flex: 1;
   font-weight: 700;
   letter-spacing: 0.8px;
@@ -157,7 +220,7 @@ accent-color: #07a407;
   background-color: #bbb;
 }
 
-#submit-button.submit-button-active{
+#submit-button.submit-button-active {
   color: white;
   border-color: #1800f3;
   background-color: #1800f3;
